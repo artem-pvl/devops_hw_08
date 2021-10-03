@@ -12,7 +12,7 @@
       update_cache: yes
       state: present
 
-- name: Starting build server
+- name: Building run image
   hosts: build
   become: yes
 
@@ -22,6 +22,25 @@
       src: ./build
       dest: /
 
-  - name: Run build server
-  - name: Run web server
+  - name: Compile artifact
+    community.docker.docker_compose:
+      project_src: ./build
+
+  - name: Create run image
+    community.docker.docker_compose:
+      project_src: ./build
+      files: docker-compose-run.yml
+      stopped: yes
+
+  - name: Login into docker hub
+    community.docker.docker_login:
+      username: artempvl
+      password: cfb00c0f-3097-42d7-b18d-984f27200c5e
+
+  - name: Tag and push to docker hub
+    community.docker.docker_image:
+      name: artempvl/run:latest
+      repository: run:latest
+      push: yes
+      source: local
 ...
