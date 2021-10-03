@@ -5,6 +5,4 @@ services:
   assembly:
     build: ./
     image: assembly
-    volumes:
-      - artifact:/source/target
 ...
