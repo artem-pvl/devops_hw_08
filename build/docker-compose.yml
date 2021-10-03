@@ -1,0 +1,10 @@
+---
+version: "3.6"
+services:
+
+  assembly:
+    build: ./
+    image: assembly
+    volumes:
+      - artifact:/source/target
+...

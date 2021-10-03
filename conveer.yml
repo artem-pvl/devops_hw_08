@@ -17,6 +17,11 @@
   become: yes
 
   tasks:
+  - name: Copy build directory to build server
+    copy:
+      src: ./build
+      dest: /
+
   - name: Run build server
   - name: Run web server
 ...
