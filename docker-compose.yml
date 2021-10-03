@@ -10,9 +10,9 @@ services:
         source: ./binaries
         target: /source/target
 
-  run:
-    build: ./run
-    image: run:latest
-    ports:
-      - 50:8080
+  # run:
+  #   build: ./run
+  #   image: run:latest
+  #   ports:
+  #     - 50:8080
 ...
