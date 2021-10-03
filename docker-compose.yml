@@ -13,6 +13,6 @@ services:
   run:
     build: ./run
     image: run:latest
-\    ports:
+    ports:
       - 50:8080
 ...
