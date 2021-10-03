@@ -7,7 +7,7 @@ services:
     image: build:latest
     volumes:
       - type: bind
-        source: /binaries
+        source: ./binaries
         target: /source/target
 
   run:
