@@ -7,6 +7,6 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
 RUN apt update && apt install tomcat9 -y
 VOLUME ["/binaries"]
-RUN cp -ur /binaries/ /var/lib/tomcat9/webapps/
+RUN cp -ur /binaries/* /var/lib/tomcat9/webapps/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
