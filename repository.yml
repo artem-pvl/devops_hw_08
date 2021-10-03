@@ -1,0 +1,25 @@
+---
+- name: Setting up repository
+  hosts: repository
+  become: yes
+
+  tasks:
+  - name: Installing latest version docker and docker-compose
+    apt:
+      pkg:
+        - docker
+        - docker-compose
+      update_cache: yes
+      state: present
+
+- name: Starting repository
+  hosts: repository
+  become: yes
+
+  tasks:
+
+  - name: Run repository with docker compose of gitlab
+    community.docker.docker_compose:
+      project_src: repository
+      build: no
+...

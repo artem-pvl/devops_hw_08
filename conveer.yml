@@ -1,0 +1,22 @@
+---
+- name: Installing docker and docker-compose
+  hosts: build, web
+  become: yes
+
+  tasks:
+  - name: Installing latest version docker and docker-compose
+    apt:
+      pkg:
+        - docker
+        - docker-compose
+      update_cache: yes
+      state: present
+
+- name: Starting build server
+  hosts: build
+  become: yes
+
+  tasks:
+  - name: Run build server
+  - name: Run web server
+...

@@ -1,0 +1,29 @@
+---
+version: "3.6"
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    hostaname: 'hw08-4'
+    ports:
+      - "23:22"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - $GITLAB_HOME/data:/var/opt/gitlab
+      - $GITLAB_HOME/logs:/var/log/gitlab
+      - $GITLAB_HOME/config:/etc/gitlab
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+    configs:
+      - source: gitlab
+        target: /omnibus_config.rb
+    secrets:
+      - gitlab_root_password
+configs:
+  gitlab:
+    file: ./gitlab.rb
+secrets:
+  gitlab_root_password:
+    file: ./root_password.txt
+...
