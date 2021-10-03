@@ -2,20 +2,17 @@
 version: "3.6"
 services:
 
-  assembly:
+  build:
     build: ./build
     image: build:latest
     volumes:
-      - artifact:/source/target
+      - type: bind
+      - source: ./binaries
+      - target: /source/target
 
-  prod:
+  run:
     build: ./run
     image: run:latest
     ports:
       - 50:8080
-    volumes:
-      - artifact:/binaries
-
-volumes:
-  artifact:
 ...
