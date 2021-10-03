@@ -5,6 +5,10 @@ services:
     image: gitlab/gitlab-ce:latest
     restart: always
     hostname: 'hw08-4'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://hw08-4:80'
+        gitlab_rails['gitlab_shell_ssh_port'] = 23
     ports:
       - "23:22"
       - "80:80"
@@ -13,17 +17,4 @@ services:
       - $GITLAB_HOME/data:/var/opt/gitlab
       - $GITLAB_HOME/logs:/var/log/gitlab
       - $GITLAB_HOME/config:/etc/gitlab
-    environment:
-      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
-    configs:
-      - source: gitlab
-        target: /omnibus_config.rb
-    secrets:
-      - gitlab_root_password
-configs:
-  gitlab:
-    file: ./gitlab.rb
-secrets:
-  gitlab_root_password:
-    file: ./root_password.txt
 ...
