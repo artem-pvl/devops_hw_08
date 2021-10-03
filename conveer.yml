@@ -29,7 +29,7 @@
   - name: Create run image
     community.docker.docker_compose:
       project_src: /build
-      files: /docker-compose-run.yml
+      files: docker-compose-run.yml
       build: yes
       # stopped: yes
 
