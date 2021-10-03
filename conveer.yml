@@ -24,11 +24,11 @@
 
   - name: Compile artifact
     community.docker.docker_compose:
-      project_src: ./build
+      project_src: /build
 
   - name: Create run image
     community.docker.docker_compose:
-      project_src: ./build
+      project_src: /build
       files: docker-compose-run.yml
       stopped: yes
 
