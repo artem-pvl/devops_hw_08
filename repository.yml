@@ -12,11 +12,17 @@
       update_cache: yes
       state: present
 
-- name: Starting repository
+- name: Creating repository
   hosts: repository
   become: yes
 
   tasks:
+
+  - name: Copy docker-compose to host
+    copy:
+      src: ./repository
+      dest: /repository
+
 
   - name: Run repository with docker compose of gitlab
     community.docker.docker_compose:
