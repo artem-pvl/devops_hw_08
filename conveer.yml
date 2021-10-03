@@ -52,15 +52,15 @@
 
   tasks:
 
-  - name: Login into docker hub
-    community.docker.docker_login:
-      username: artempvl
-      password: cfb00c0f-3097-42d7-b18d-984f27200c5e
+  # - name: Login into docker hub
+  #   community.docker.docker_login:
+  #     username: artempvl
+  #     password: cfb00c0f-3097-42d7-b18d-984f27200c5e
 
-  # - name: Pull run image
-  #   community.docker.docker_image:
-  #     name: artempvl/run:latest
-  #     source: pull
+  - name: Pull run image
+    community.docker.docker_image:
+      name: artempvl/run:latest
+      source: pull
 
   - name: Copy build directory to build server
     copy:
