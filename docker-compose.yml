@@ -7,12 +7,12 @@ services:
     image: build:latest
     volumes:
       - type: bind
-      - source: ./binaries
-      - target: /source/target
+        source: ./binaries
+        target: /source/target
 
   run:
     build: ./run
     image: run:latest
-    ports:
+\    ports:
       - 50:8080
 ...
