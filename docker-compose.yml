@@ -1,0 +1,21 @@
+---
+version: "3.6"
+services:
+
+  assembly:
+    build: ./build
+    image: build:latest
+    volumes:
+      - artifact:/source/target
+
+  prod:
+    build: ./run
+    image: run:latest
+    ports:
+      - 50:8080
+    volumes:
+      - artifact:/binaries
+
+volumes:
+  artifact:
+...
