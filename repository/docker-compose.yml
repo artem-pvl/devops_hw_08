@@ -4,7 +4,7 @@ services:
   gitlab:
     image: gitlab/gitlab-ce:latest
     restart: always
-    hostaname: 'hw08-4'
+    hostname: 'hw08-4'
     ports:
       - "23:22"
       - "80:80"
