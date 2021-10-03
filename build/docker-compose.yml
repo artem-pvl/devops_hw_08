@@ -9,10 +9,4 @@ services:
       - type: bind
         source: ./binaries
         target: /source/target
-
-  # run:
-  #   build: ./run
-  #   image: run:latest
-  #   ports:
-  #     - 50:8080
 ...
