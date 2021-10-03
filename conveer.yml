@@ -32,6 +32,7 @@
       project_src: /build
       files: docker-compose-run.yml
       build: yes
+      stopped: yes
 
   - name: Login into docker hub
     community.docker.docker_login:
