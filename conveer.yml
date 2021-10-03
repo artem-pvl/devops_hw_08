@@ -40,8 +40,8 @@
 
   - name: Tag and push to docker hub
     community.docker.docker_image:
-      name: artempvl/run:latest
-      repository: run:latest
+      name: run:latest
+      repository: artempvl/run:latest
       push: yes
       source: local
 ...
