@@ -21,7 +21,7 @@
   - name: Copy docker-compose to host
     copy:
       src: ./repository
-      dest: /repository
+      dest: /
 
 
   - name: Run repository with docker compose of gitlab
