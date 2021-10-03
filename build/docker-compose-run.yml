@@ -1,0 +1,10 @@
+---
+version: "3.6"
+services:
+
+  run:
+    build: ./run
+    image: run:latest
+    ports:
+      - 50:8080
+...
