@@ -1,0 +1,9 @@
+---
+version: "3.6"
+services:
+
+  run:
+    image: artempvl/run:latest
+    ports:
+      - 50:8080
+...

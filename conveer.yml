@@ -57,27 +57,26 @@
   #     username: artempvl
   #     password: cfb00c0f-3097-42d7-b18d-984f27200c5e
 
-  - name: Pull run image
-    community.docker.docker_image:
-      name: artempvl/run:latest
-      source: pull
+  # - name: Pull run image
+  #   community.docker.docker_image:
+  #     name: artempvl/run:latest
+  #     source: pull
 
   - name: Copy build directory to build server
     copy:
-      src: ./build/docker-compose-run.yml
+      src: ./build//run/docker-compose.yml
       dest: /
 
   - name: Stop containers
     community.docker.docker_compose:
       project_src: /
-      files: docker-compose-run.yml
+      files: docker-compose.yml
       state: absent
 
   - name: Start container
     community.docker.docker_compose:
       project_src: /
-      files: docker-compose-run.yml
+      files: docker-compose.yml
       build: no
       state: present
-      restarted: yes
 ...
