@@ -67,11 +67,17 @@
       src: ./build/docker-compose-run.yml
       dest: /
 
+  - name: Stop containers
+    community.docker.docker_compose:
+      project_src: /
+      files: docker-compose-run.yml
+      state: absent
+
   - name: Start container
     community.docker.docker_compose:
       project_src: /
       files: docker-compose-run.yml
       build: no
-      pull: yes
       state: present
+      restarted: yes
 ...
