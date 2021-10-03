@@ -26,6 +26,6 @@
 
   - name: Run repository with docker compose of gitlab
     community.docker.docker_compose:
-      project_src: repository
+      project_src: /repository
       build: no
 ...
