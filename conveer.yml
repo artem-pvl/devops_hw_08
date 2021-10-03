@@ -28,9 +28,10 @@
 
   - name: Create run image
     community.docker.docker_compose:
-      project_src: /build
-      files: docker-compose-run.yml
-      stopped: yes
+      # project_src: /build
+      definition: /build/docker-compose-run.yml
+      build: yes
+      # stopped: yes
 
   - name: Login into docker hub
     community.docker.docker_login:
