@@ -45,14 +45,14 @@
       repository: artempvl/run:latest
       push: yes
       source: local
+      # state: absent
+      # force_absent: yes
+
+  - name: Remoove image from build server
+    community.docker.docker_image:
+      name: run
       state: absent
       force_absent: yes
-
-  # - name: Remoove image from build server
-  #   community.docker.docker_image:
-  #     name: run
-  #     state: absent
-  #     force_absent: yes
 
 
 - name: Run image
