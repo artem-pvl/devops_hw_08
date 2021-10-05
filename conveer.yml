@@ -53,21 +53,13 @@
 
   tasks:
 
-  - name: Copy build directory to build server
-    copy:
-      src: ./build//run/docker-compose.yml
-      dest: /
-
-  - name: Stop containers
-    community.docker.docker_compose:
-      project_src: /
-      files: docker-compose.yml
-      state: absent
-
-  - name: Start container
-    community.docker.docker_compose:
-      project_src: /
-      files: docker-compose.yml
-      build: no
-      state: present
+  - name: Start web container
+    community.docker.docker_container:
+      name: run_web
+      image: artempvl/run:latest
+      pull: yes
+      detach: yes
+      state: started
+      published_ports:
+        - 8080:8080
 ...
